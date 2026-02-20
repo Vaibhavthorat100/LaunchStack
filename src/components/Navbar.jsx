@@ -1,34 +1,46 @@
 import { Link } from "react-router-dom";
-import { FaHome, FaStar, FaDollarSign, FaTachometerAlt, FaEnvelope } from "react-icons/fa";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-indigo-600">AI SaaS</h1>
+        <h1 className="text-2xl font-bold text-indigo-600">
+          LaunchStack
+        </h1>
 
-        <div className="space-x-6 hidden md:flex items-center">
-          <Link to="/" className="flex items-center gap-2 hover:text-indigo-600">
-            <FaHome /> Home
-          </Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-6">
+          <Link to="/" className="hover:text-indigo-600">Home</Link>
+          <Link to="/features" className="hover:text-indigo-600">Features</Link>
+          <Link to="/pricing" className="hover:text-indigo-600">Pricing</Link>
+          <Link to="/dashboard" className="hover:text-indigo-600">Dashboard</Link>
+          <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
+        </div>
 
-          <Link to="/features" className="flex items-center gap-2 hover:text-indigo-600">
-            <FaStar /> Features
-          </Link>
-
-          <Link to="/pricing" className="flex items-center gap-2 hover:text-indigo-600">
-            <FaDollarSign /> Pricing
-          </Link>
-
-          <Link to="/dashboard" className="flex items-center gap-2 hover:text-indigo-600">
-            <FaTachometerAlt /> Dashboard
-          </Link>
-
-          <Link to="/contact" className="flex items-center gap-2 hover:text-indigo-600">
-            <FaEnvelope /> Contact
-          </Link>
+        {/* Mobile Icon */}
+        <div className="md:hidden text-2xl cursor-pointer">
+          {isOpen ? (
+            <FaTimes onClick={() => setIsOpen(false)} />
+          ) : (
+            <FaBars onClick={() => setIsOpen(true)} />
+          )}
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/features" onClick={() => setIsOpen(false)}>Features</Link>
+          <Link to="/pricing" onClick={() => setIsOpen(false)}>Pricing</Link>
+          <Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+        </div>
+      )}
     </nav>
   );
 }
