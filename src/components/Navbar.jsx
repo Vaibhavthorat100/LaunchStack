@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaStar,
+  FaDollarSign,
+  FaTachometerAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", path: "/", icon: <FaHome /> },
+    { name: "Features", path: "/features", icon: <FaStar /> },
+    { name: "Pricing", path: "/pricing", icon: <FaDollarSign /> },
+    { name: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> },
+    { name: "Contact", path: "/contact", icon: <FaEnvelope /> },
+  ];
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -13,32 +29,44 @@ export default function Navbar() {
         </h1>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:text-indigo-600">Home</Link>
-          <Link to="/features" className="hover:text-indigo-600">Features</Link>
-          <Link to="/pricing" className="hover:text-indigo-600">Pricing</Link>
-          <Link to="/dashboard" className="hover:text-indigo-600">Dashboard</Link>
-          <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              to={link.path}
+              className="flex items-center gap-2 hover:text-indigo-600 transition"
+            >
+              {link.icon}
+              {link.name}
+            </Link>
+          ))}
         </div>
 
-        {/* Mobile Icon */}
-        <div className="md:hidden text-2xl cursor-pointer">
-          {isOpen ? (
-            <FaTimes onClick={() => setIsOpen(false)} />
-          ) : (
-            <FaBars onClick={() => setIsOpen(true)} />
-          )}
-        </div>
+        {/* Mobile Toggle Button */}
+        <button
+          className="md:hidden text-2xl text-indigo-600"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
-          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/features" onClick={() => setIsOpen(false)}>Features</Link>
-          <Link to="/pricing" onClick={() => setIsOpen(false)}>Pricing</Link>
-          <Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
-          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+        <div className="md:hidden bg-white border-t shadow-md px-6 py-4 space-y-4">
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              to={link.path}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 text-lg hover:text-indigo-600 transition"
+            >
+              <span className="text-indigo-600 text-xl">
+                {link.icon}
+              </span>
+              {link.name}
+            </Link>
+          ))}
         </div>
       )}
     </nav>
