@@ -1,16 +1,104 @@
-# React + Vite
+# 🚀 AI LaunchStack Dashboard – Frontend Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive SaaS website built using **React + Vite + TailwindCSS**.  
+This project demonstrates clean UI design, reusable components, routing, and dashboard layout structure.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## React Compiler
+This project includes:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ Landing Page
+- ✅ Product Features Page
+- ✅ Pricing Page (with highlighted plan)
+- ✅ User Dashboard UI (static frontend)
+- ✅ Contact / Lead Capture Page
+- ✅ Responsive Navbar with Icons
+- ✅ Sidebar Navigation
+- ✅ Reusable Components
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- ⚛️ React (Component-Based Architecture)
+- ⚡ Vite (Fast Build Tool)
+- 🎨 TailwindCSS (Utility-first Styling)
+- 🔀 React Router DOM (Routing)
+- 🎯 React Icons
+
+---
+
+## 📂 Folder Structure
+
+
+src/
+├── components/
+│ ├── Navbar.jsx
+│ ├── Footer.jsx
+│ ├── Sidebar.jsx
+│ ├── PricingCard.jsx
+│ └── StatCard.jsx
+│
+├── pages/
+│ ├── Landing.jsx
+│ ├── Features.jsx
+│ ├── Pricing.jsx
+│ ├── Dashboard.jsx
+│ └── Contact.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+
+
+---
+
+## 🎯 Features
+
+### 🌟 Landing Page
+- Hero Section
+- Feature Highlights
+- Call-To-Action Buttons
+
+### ⚙️ Features Page
+- Feature Cards with Icons
+- Responsive Grid Layout
+
+### 💰 Pricing Page
+- 3 Pricing Plans
+- Highlighted "Pro" Plan
+- CTA Buttons
+
+### 📊 Dashboard UI (Static)
+- Sidebar Navigation
+- Stat Cards with Icons
+- Recent Activity Table
+
+### 📩 Contact Page
+- Lead Capture Form
+- Clean UI Layout
+
+---
+
+## 📱 Responsive Design
+
+The application is fully responsive and works on:
+
+- Desktop
+- Tablet
+- Mobile Devices
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone <your-repo-link>
+2️⃣ Install Dependencies
+npm install
+3️⃣ Run Development Server
+npm run dev
